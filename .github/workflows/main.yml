@@ -1,0 +1,21 @@
+name: Run ESLint 
+
+on:
+  - push
+
+jobs:
+  build:
+    name: Run ESLint
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the repository
+      - uses: actions/checkout@v1
+
+      # Install Node.js
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+
+      # Install your dependencies
+      - run: npx install-peerdeps --dev eslint-config-airbnb-base@14.2.1
+      - run: npx eslint .
