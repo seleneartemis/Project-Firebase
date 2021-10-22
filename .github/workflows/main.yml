@@ -1,7 +1,21 @@
-- name: Run ESLint
-  # You may pin to the exact commit or the version.
-  # uses: stefanoeb/eslint-action@0b532bcd98dbed80a59071fa8986fcf1b1715be4
-  uses: stefanoeb/eslint-action@1.0.2
-  with:
-    # Blob of files to lint
-    files: # optional, default is .
+name: Run ESLint 
+
+on:
+  - push
+
+jobs:
+  build:
+    name: Run ESLint
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the repository
+      - uses: actions/checkout@v1
+
+      # Install Node.js
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+
+      # Install your dependencies
+      - run: npx install-peerdeps --dev eslint-config-airbnb-base@14.2.1
+      - run: npx eslint .
