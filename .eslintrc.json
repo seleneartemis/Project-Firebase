@@ -1,0 +1,38 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true,
+        "jest":true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/prop-types": "off",
+        "no-param-reassign": 0,
+        "no-unused-vars": "off",
+        "no-undefined": "off",
+        "no-undef": "off",
+        "import/extensions": "off",
+        "import/no-unresolved": "off",
+        "react/destructuring-assignment": ["off", "always"],
+        "react/button-has-type": ["off", {
+            "button": "true",
+            "submit": "true",
+            "reset": "true"
+        }],
+        "no-console":"off"
+    }
+}
